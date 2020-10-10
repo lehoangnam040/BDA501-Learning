@@ -1,0 +1,34 @@
+- Link:
+https://data-flair.training/blogs/hadoop-ecosystem
+
+- HDFS: hệ thống file phân tán của hadoop
+
+- Yarn: quản lí resource
+
+- MapReduce:  Giống lập trình cấp thấp trên bigdata (assembly trong programming)
+
+-> Thời gian query expect trên bigdata bằng thời gian query trên DB
+
+-> Có các plugin hỗ trợ làm việc:
+
+- Oozie: lập trình đồng bộ, work flow task by task
+
+- ZooKeeper: chỉ cài, ko code trên đó
+
+- Ambari: quản lý và giám sát cho cả ecosystem
+
+- Pig: ngôn ngữ script (ngôn ngữ bậc cao hơn MapReduce, giống bashscript)
+
+Data ingestion plugin: đẩy dữ liệu với các loại khác nhau vào ecosystem
+- Sqoop:
+- Flume:
+đều là data collection
+
+- HDFS architecture
+
+Namenode chứa metadata
+Datanode chứa data
+
+data khi được duplicate sẽ chứa các thông tin về node, server chứa nó, v.v... thì các thông tin đó gọi là metadata
+
+

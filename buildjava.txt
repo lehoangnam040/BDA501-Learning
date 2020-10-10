@@ -1,0 +1,4 @@
+javac -classpath  $($HADOOP_HOME/bin/hadoop classpath) -d WordCount/ WordCount.java
+
+jar -cvf WordCount.jar -C WordCount/ .
+hadoop jar WordCount.jar WordCount /input1 /output3
