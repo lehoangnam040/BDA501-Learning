@@ -1,0 +1,10 @@
+# Note about learning pig
+
+Pig là tầng abstract cho mapreduce, dễ viết hơn mapreduce<br/>
+Pig là 1 dạng ngôn ngữ script<br/>
+Chạy các tác vụ ETL với pig:<br/>
+- load data
+- script chạy ETL
+- dump kết quả ngược lại HDFS 
+
+

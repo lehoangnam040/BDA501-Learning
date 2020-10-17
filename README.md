@@ -5,12 +5,12 @@
 
 - Cần cài đặt docker trên máy
 - File \*.tar.gz là docker file đã được đóng gói và dump lại, các file này có dung lượng lớn nên phải tải git lfs để support việc pull về
-- Load docker dùng câu lệnh ```docker load -i \*.tar.gz```
+- Load docker dùng câu lệnh ```docker load -i *.tar.gz```
 - Run image: ```docker run -tid "image-id"```
 - Vào trong máy ảo: ```docker exec -it "container-id" bash```
 - Chạy ```/etc/init.d/ssh start``` để mở openssh-server
 - Kiểm tra ssh bằng cách ```/etc/init.d/ssh status```
-- ```su hduser\_``` để switch sang user "hduser\_" có sẵn
+- ```su hduser_``` để switch sang user "hduser\_" có sẵn
 - ```chmod 750 ~/hdfs```
 - ```$HADOOP_HOME/bin/hdfs namenode -format```
 - ```$HADOOP_HOME/sbin/start-dfs.sh```
