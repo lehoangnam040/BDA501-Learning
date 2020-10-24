@@ -1,0 +1,5 @@
+scalac -classpath "$(hadoop classpath):/usr/local/spark/jars/*" -d WordCount/ wordcount.scala
+
+jar -cvf WordCount.jar -C WordCount/ .
+
+spark-submit --class "WordCount" --master local WordCount.jar

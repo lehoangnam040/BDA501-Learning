@@ -54,7 +54,7 @@ compiled Jun 02 2017, 15:41:58
 
 - ```scala --version```
 ```
-Scala code runner version 2.13.3 -- Copyright 2002-2020, LAMP/EPFL and Lightbend, Inc.
+Scala code runner version 2.12.10 -- Copyright 2002-2019, LAMP/EPFL and Lightbend, Inc.
 ```
 
 - ```spark-shell --version```
