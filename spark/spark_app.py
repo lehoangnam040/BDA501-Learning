@@ -27,27 +27,22 @@ from pyspark.sql.functions import explode, split, col, from_json,struct,to_json
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType
 
 if __name__ == '__main__':
-    spark = SparkSession.builder.appName("wordCount").getOrCreate()
+    spark = SparkSession.builder.appName("productCount").getOrCreate()
     sc = spark.sparkContext
     sc.setLogLevel("WARN")
     # Read the data from kafka
-    df = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "192.168.1.24:9093").option("subscribe", "wordcount").load()
+    df = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "172.17.0.1:9093").option("subscribe", "productView").load()
 
     string_df = df.selectExpr("CAST(key AS STRING)","CAST(value AS STRING)")
 
-    schema = StructType([StructField("text", StringType())])
+    schema = StructType([StructField("product", StringType())])
 
     json_df = string_df.withColumn("jsonData", from_json(col("value"), schema)).select("jsondata.*")
 
-    words = json_df.select(
-        explode(
-            split(json_df.text, " ")
-        ).alias("word")
-    )
+    products = json_df.select(json_df.product).alias("product")
 
-    wordCounts = words.groupBy("word").count()
+    productCount = products.groupBy("product").count()
 
-    query = wordCounts.writeStream.outputMode("complete").format("console").start()
+    query = productCount.writeStream.outputMode("complete").format("console").start()
 
     query.awaitTermination()
-
