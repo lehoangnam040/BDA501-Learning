@@ -3,7 +3,7 @@ from json import loads
 
 
 consumer = KafkaConsumer(
-    'sample',
+    'wordcount',
      bootstrap_servers=['localhost:9092'],
      auto_offset_reset='earliest',
      enable_auto_commit=True,
