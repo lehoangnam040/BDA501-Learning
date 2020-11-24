@@ -43,6 +43,13 @@ if __name__ == '__main__':
 
     productCount = products.groupBy("product").count()
 
-    query = productCount.writeStream.outputMode("complete").format("console").start()
+    # Debug: print to console
+    #query = productCount.writeStream.outputMode("complete").format("console").start()
+    #query.awaitTermination()
 
-    query.awaitTermination()
+    # Publish to Kafka
+    productCount.selectExpr("to_json(struct(*)) AS value").writeStream.outputMode("complete")\
+            .format("kafka").option("kafka.bootstrap.servers", "172.17.0.1:9093")\
+            .option("checkpointLocation", "file:///home/hduser_/checkpoint")\
+            .option("topic", "productViewCount").start().awaitTermination()
+
