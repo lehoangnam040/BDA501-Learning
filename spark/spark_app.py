@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     products = json_df.select(json_df.product).alias("product")
 
-    productCount = products.groupBy("product").count()
+    productCount = products.groupBy("product").agg(count().alias("view"))
 
     # Debug: print to console
     #query = productCount.writeStream.outputMode("complete").format("console").start()
