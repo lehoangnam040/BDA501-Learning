@@ -1,0 +1,15 @@
+version: '2.3'
+
+services:
+  elk:
+    image: sebp/elk:oss-793
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "9300:9300" 
+    environment:
+      - MYKAFKA_SERVER=172.17.0.1:9093
+      - MYKAFKA_TOPICS_VIEW=productViewCount
+    volumes:
+      - ./elk-pre-hooks.sh:/usr/local/bin/elk-pre-hooks.sh
+      - ./logstash.conf:/etc/logstash/conf.d/30-output.conf

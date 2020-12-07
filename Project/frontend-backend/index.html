@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>Ecommerce Website</title>
+<style>
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.price {
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: bold;
+    color: #bf081f;
+    line-height: 15px;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<script src="jquery.min.js" type="text/javascript"></script> 
+</head>
+<body>
+	<!--<h1>Ecommerce Website for DEMO</h1>-->
+<br/>
+<div class="row">
+  <div class="column">
+       <img src="1.jpg" alt="1" width="300" height="300">
+       <h3>iPhone 12 Pro Max 128GB</h3>
+       <div class="price"><strong>33.990.000₫</strong></div><br/>
+       <button class="button" id="btn1">Xem thêm</button>
+  </div>
+  <div class="column">
+       <img src="2.jpg" alt="2" width="300" height="300">
+       <h3>Samsung Galaxy Note 10+</h3>
+       <div class="price"><strong>16.490.000₫</strong></div><br/>
+       <button class="button" id="btn2">Xem thêm</button>
+  </div>
+  <div class="column">
+       <img src="3.jpg" alt="3" width="300" height="300">
+       <h3>Xiaomi Redmi Note 9</h3>
+       <div class="price"><strong>4.790.000₫</strong></div><br/>
+       <button class="button" id="btn3">Xem thêm</button>
+  </div>
+  <div class="column">
+       <img src="4.jpg" alt="4" width="300" height="300">
+       <h3>Realme C15</h3>
+       <div class="price"><strong>4.190.000₫</strong></div><br/>
+       <button class="button" id="btn4">Xem thêm</button>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="column">
+       <img src="5.jpg" alt="1" width="300" height="300">
+       <h3>Samsung Galaxy M51</h3>
+       <div class="price"><strong>9.490.000₫</strong></div><br/>
+       <button class="button" id="btn5">Xem thêm</button>
+  </div>
+  <div class="column">
+       <img src="6.jpg" alt="2" width="300" height="300">
+       <h3>Vivo V20</h3>
+       <div class="price"><strong>8.490.000₫</strong></div><br/>
+       <button class="button" id="btn6">Xem thêm</button>
+  </div>
+  <div class="column">
+       <img src="7.jpg" alt="3" width="300" height="300">
+       <h3>Samsung Galaxy Z Fold2 5G</h3>
+       <div class="price"><strong>50.000.000₫</strong></div><br/>
+       <button class="button" id="btn7">Xem thêm</button>
+  </div>
+  <div class="column">
+       <img src="8.jpg" alt="4" width="300" height="300">
+       <h3>OPPO A93</h3>
+       <div class="price"><strong>7.190.000₫</strong></div><br/>
+       <button class="button" id="btn8">Xem thêm</button>
+  </div>
+</div>
+<script>
+	$(document).ready(function() {
+	        var view_product = function(product_id) {
+	            var settings = {"url": "http://localhost:5000/view/" + product_id,"method": "GET","timeout": 0,};
+
+		    $.ajax(settings).done(function (response) {
+			console.log(response);
+		    });
+	        };
+
+		//jQuery.support.cors = true;
+		$("#btn1").click(function() {
+			view_product(1);
+			//window.location.href = "p1.html";
+		});
+		$("#btn2").click(function() {
+			view_product(2);
+			//window.location.href = "p1.html";
+		});
+		$("#btn3").click(function() {
+			view_product(3);
+			//window.location.href = "p1.html";
+		});
+		$("#btn4").click(function() {
+			view_product(4);
+			//window.location.href = "p1.html";
+		});
+		$("#btn5").click(function() {
+			view_product(5);
+			//window.location.href = "p1.html";
+		});
+		$("#btn6").click(function() {
+			view_product(6);
+			//window.location.href = "p1.html";
+		});
+		$("#btn7").click(function() {
+			view_product(7);
+			//window.location.href = "p1.html";
+		});
+		$("#btn8").click(function() {
+			view_product(8);
+			//window.location.href = "p1.html";
+		});
+	});
+</script>
+</body>
+</html>
